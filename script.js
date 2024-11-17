@@ -1,14 +1,14 @@
 // классовый компонент
 class ClassComponent extends React.Component {
     render() {
-        return <p>Я классовый компонент</p>
+        return <p>Я {this.props.name} компонент</p>
     }
 }
 
 // функциональный компонент
-function FunctionComponent() {
+function FunctionComponent(props) {
     return (
-        <p>Я функциональный компонент</p>
+        <p>Я {props.name} компонент</p>
     );
 }
 
@@ -17,13 +17,11 @@ function FunctionComponent() {
 function App() {
     return (
         <div>
-            <ClassComponent />
-            <FunctionComponent />
+            <ClassComponent name="классовый" />
+            <FunctionComponent name="функциональный" />
         </div>
     );
 }
 
-const rootEl = document.createElement("div"); // создаем элемент div
-rootEl.id = "root"; // устанавливаем атрибут id
-const root = document.body.appendChild(rootEl); // добавляем его в body
-ReactDOM.render(<App />, root); // рендерим основной компонент
+const root = document.getElementById('root');
+ReactDOM.render(<App />, root);
