@@ -23,5 +23,7 @@ function App() {
     );
 }
 
-const root = document.getElementById("root");
-ReactDOM.render(<App />, root);
+const rootEl = document.createElement("div"); // создаем элемент div
+rootEl.id = "root"; // устанавливаем атрибут id
+const root = document.body.appendChild(rootEl); // добавляем его в body
+ReactDOM.render(<App />, root); // рендерим основной компонент
